@@ -18,7 +18,10 @@ def get_unique_industries(path: str) -> List[str]:
         List of unique industries
     """
     data = read(path)
-    industries_list = {job["industry"] for job in data}
+    industries_list = {
+        job["industry"] for job in data
+        if len(job["industry"]) != 0
+        }
     return list(industries_list)
 
 
